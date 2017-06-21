@@ -1,0 +1,45 @@
+<!doctype html> 
+<html> 
+  <head> 
+    <meta charset="utf-8"/> 
+    <title>Clarifaiサンプル</title> 
+  </head> 
+  <body> 
+    <h1>Clarifaiサンプル</h1> 
+     <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script> 
+     <script> 
+      
+       //「Clarifai」の初期設定 
+       var app = new Clarifai.App( 
+        
+         'PDHbTjJO_0pad1rRngaM24q4LFIsK3grTRDdxifg', 
+         'wDZCX34SdEdTTYDl--zRP8m8Nj1W_fpiRd8wAYiG' 
+          
+       ); 
+  
+  
+       // 画像を認識してキーワードを返す処理 
+       app.models.predict( Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg') 
+       .then(function( response ) { 
+  
+         console.log( response ); 
+  
+  
+         // キーワードだけを一覧にするコード 
+         /* 
+         var data = response.outputs[0].data.concepts; 
+  
+         data.forEach(function( value ) { 
+           console.log( value.name ); 
+         }) 
+         */ 
+  
+       }, 
+  
+       function( err ) { 
+         console.log( err ); 
+       }); 
+        
+   </script> 
+   </body> 
+ </html> 
